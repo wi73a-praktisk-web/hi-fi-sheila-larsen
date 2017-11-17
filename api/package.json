@@ -6,7 +6,8 @@
   "dependencies": {
     "mysql2": "^1.4.2",
     "nodemon": "^1.12.1",
-    "restify": "^6.0.1",
+    "password-hash": "^1.2.2",
+    "restify": "^6.3.2",
     "restify-cors-middleware": "^1.0.1"
   },
   "devDependencies": {},
