@@ -21,12 +21,14 @@ module.exports = (app) => {
                             }
                         });
                     } else {
-                        res.send(401);
+                        res.json(401,{
+                            "message": "FORKERT BRUGERNAVN ELLER KODEORD"
+                        })
                     }
                 }
                 else{
                     res.json(401,{
-                        "message": "forkert brugernavn eller kodeord"
+                        "message": "FORKERT BRUGERNAVN ELLER KODEORD"
                     })
                 }
             });

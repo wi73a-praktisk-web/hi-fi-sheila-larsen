@@ -69,12 +69,14 @@ module.exports = (app) => {
         let navn = (req.body.produktNavn == undefined ? '' : req.body.produktNavn);
         let beskrivelse = (req.body.produktBeskrivelse == undefined ? '' : req.body.produktBeskrivelse);
         let pris = (req.body.produktPris == undefined ? 0 : req.body.produktPris);
+        let kategori = (req.body.produktKategori == undefined ? 0 : req.body.produktKategori);
+        let producent = (req.body.produktProducent == undefined ? 0 : req.body.produktProducent);
         let id = (isNaN(req.params.id) ? 0 : req.params.id);
         pris = pris.replace(',', '.');
 
         if (navn != '' && beskrivelse != '' && !isNaN(pris) && id > 0) {
 
-            db.execute(`UPDATE produkt SET navn = ?, beskrivelse = ?, pris = ?, fk_kategori_id = 1, fk_producent_id = 1  WHERE id = ?`, [navn, beskrivelse, pris, id], (err, rows) => {
+            db.execute(`UPDATE produkt SET navn = ?, beskrivelse = ?, pris = ?, fk_kategori_id = ?, fk_producent_id = ?  WHERE id = ?`, [navn, beskrivelse, pris, kategori, producent, id], (err, rows) => {
                 if (err) {
                     console.log(err);
                 } else {
